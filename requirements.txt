@@ -1,0 +1,8 @@
+streamlit
+pandas
+requests
+transformers
+pytube
+matplotlib
+pytorch
+tensorflow
