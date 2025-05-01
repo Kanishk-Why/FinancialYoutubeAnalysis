@@ -88,7 +88,7 @@ def fetch_stock_news_from_api(ticker, api_key):
     return []
 
 st.subheader("📰 Latest News")
-news_api_key = '047ad87e36534422b4bf4491b9ac6a71'
+news_api_key = '63db1ccd3467473888bb20f03d2873c1'
 news = fetch_stock_news_from_api(selected_stock, news_api_key)
 
 if news:
