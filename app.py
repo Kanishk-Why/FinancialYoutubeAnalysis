@@ -10,6 +10,21 @@ from plotly import graph_objs as go
 import requests
 from bs4 import BeautifulSoup
 
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+if not st.session_state.logged_in:
+    st.set_page_config(page_title="Login", page_icon="🔐")
+    st.title("🔐 Login")
+    st.text_input("Username", key="username")
+    st.text_input("Password", type="password", key="password")
+    
+    if st.button("Login"):
+        st.session_state.logged_in = True
+        st.experimental_rerun()  # Triggers a rerun to the app (after the login process)
+    
+    st.stop()
+
 # 🎯 App Title 
 st.markdown("""
 # 📈 Stock Analysis & Prediction App  
@@ -207,3 +222,19 @@ st.plotly_chart(fig1)
 st.write("📊 Forecast Components")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
+st.write("---")  # Line separator for readability
+
+st.header("💬 We value your feedback!")
+
+# Text input area for feedback
+feedback = st.text_area("Please share your feedback with us:", "")
+
+# Button to submit feedback
+if st.button("Submit Feedback"):
+    if feedback:
+        # You could save this feedback to a database or a file, but for now, we'll just show it in the app
+        st.success("Thank you for your feedback! 🙏")
+        st.write("You submitted the following feedback:")
+        st.write(feedback)
+    else:
+        st.warning("⚠️ Please enter some feedback before submitting.")
