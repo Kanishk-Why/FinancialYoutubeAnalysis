@@ -4,7 +4,7 @@ torchvision
 torchaudio
 numpy
 pandas
-yfinance == 0.2.57
+yfinance
 scikit-learn
 matplotlib
 statsmodels
